@@ -1,5 +1,6 @@
-# dna
-DNA API test
+# README
+
+## Requirements
 
 The app should have the following capabilities:
 
