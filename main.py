@@ -1,26 +1,33 @@
-def GenSequence(N):
-    """Generate a DNA sequence of length N """
+
+class dna():
+
+    def __init__(self):
+        self.sequence = []
     
-    import random
-    seq = [random.choice(["G", "A", "T", "C"]) for i in range(N)]
-    return seq
+    def GenSequence(self, N):
+        """Generate a DNA sequence of length N """
 
-def QuerySubSequence(seq, substr):
-    """Return True if `substr` is contained inside `seq`"""
+        import random
+        self.sequence = [random.choice(["G", "A", "T", "C"]) for i in range(N)]
+        return self.sequence
 
-    import re
+    def QuerySubSequence(self, substr):
+        """Return True if `substr` is contained inside `seq`"""
 
-    # Convert sequence in string
-    seqStr = ""
-    for i in seq:
-        seqStr += i
+        import re
 
-    # Search for substring
-    p = re.compile(substr)
-    m = p.search(seqStr)
-    if m == None:
-        found = False
-    else:
-        found = True
+        # Convert sequence in string
+        seqStr = ""
+        for i in self.sequence:
+            seqStr += i
 
-    return found
+        # Search for substring
+        p = re.compile(substr)
+        m = p.search(seqStr)
+        if m == None:
+            found = False
+        else:
+            found = True
+
+        return found
+
