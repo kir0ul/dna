@@ -35,11 +35,21 @@ class dna():
     def getMostFrequentSubSeq(self, m):
         """Returns the most frequent sub-sequence of length m contained in the `sequence` property"""
 
-        # List of every possible subsequence
-        subseqList = []
+        # Create a set of every possible unique subsequence
+        subseq = set()
+        i = 0
+        while i <= len(self.sequence) - m:
+            subseq.add(self.sequence[i:i+m])
+            i += 1
+        subseq = list(subseq)
         
-        
+        # Get the occurrence number of each subsequence
+        OccurrenceNb = []
+        for i in subseq:
+            p = re.compile(i)
+            OccurrenceNb.append(len(p.findall(self.sequence)))
 
-        
-        # Get the occurence number of each subsequence
-        # OccurenceNb = len(p.findall(seqStr))
+        # First most frequent sub-sequence
+        result = subseq[OccurrenceNb.index(max(OccurrenceNb))]
+
+        return result
