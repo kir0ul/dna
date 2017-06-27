@@ -1,30 +1,29 @@
+import re
 
 class dna():
     """Instantiate a DNA object"""
     
     def __init__(self):
-        self.sequence = []
-    
-    def GenSequence(self, N):
+        self.sequence = ""
+
+        
+    def genSequence(self, N):
         """Generate a DNA sequence of length N in the subset [G-A-T-C]"""
 
         import random
-        self.sequence = [random.choice(["G", "A", "T", "C"]) for i in range(N)]
+        
+        self.sequence = ""
+        for i in range(N):
+            self.sequence += random.choice(["G", "A", "T", "C"])
         return self.sequence
 
-    def QuerySubSequence(self, subseq):
+    
+    def querySubSequence(self, subseq):
         """Return True if the string argument `subseq` is contained inside the `sequence` property"""
-
-        import re
-
-        # Convert sequence in string
-        seqStr = ""
-        for i in self.sequence:
-            seqStr += i
 
         # Search for sub-sequence
         p = re.compile(subseq)
-        m = p.search(seqStr)
+        m = p.search(self.sequence)
         if m == None:
             found = False
         else:
@@ -32,8 +31,15 @@ class dna():
 
         return found
 
-    def GetMostFrequentSubSeq(self, m):
+    
+    def getMostFrequentSubSeq(self, m):
         """Returns the most frequent sub-sequence of length m contained in the `sequence` property"""
 
+        # List of every possible subsequence
+        subseqList = []
+        
         
 
+        
+        # Get the occurence number of each subsequence
+        # OccurenceNb = len(p.findall(seqStr))
