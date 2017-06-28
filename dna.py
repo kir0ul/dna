@@ -1,4 +1,3 @@
-import re
 
 class dna():
     """Instantiate a DNA object"""
@@ -21,6 +20,8 @@ class dna():
     def querySubSequence(self, subseq):
         """Return True if the string argument `subseq` is contained inside the `sequence` property"""
 
+        import re
+        
         # Search for sub-sequence
         p = re.compile(subseq)
         m = p.search(self.sequence)
@@ -35,6 +36,7 @@ class dna():
     def getMostFrequentSubSeq(self, m):
         """Returns the most frequent sub-sequence of length m contained in the `sequence` property"""
 
+        import re
         import numpy as np
         
         # Create a set of every possible unique subsequence
@@ -51,7 +53,7 @@ class dna():
             p = re.compile(i)
             OccurrenceNb.append(len(p.findall(self.sequence)))
         
-        # Most frequent sub-sequence
+        # Most frequent sub-sequences
         OccurrenceNb = np.array(OccurrenceNb)
         subseq = np.array(subseq)
         result = list(subseq[OccurrenceNb == OccurrenceNb.max()])
