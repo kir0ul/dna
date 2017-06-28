@@ -14,6 +14,6 @@ Open a python terminal and call the API with the ```import dna``` statement.
 
 To instantiate a new DNA object, type ```myDna = dna.dna()```
 
-1) Type ```myDna.genSequence(N)``` with ```N``` an integer
+1) Type ```myDna.genSequence(N)``` with ```N``` an integer. The generated sequence is saved in the ```myDna.sequence``` property.
 2) Type ```myDna.querySubSequence("GATC")```
 3) Type ```myDna.getMostFrequentSubSeq(m)``` with ```m``` an integer
