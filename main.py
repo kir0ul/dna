@@ -35,6 +35,8 @@ class dna():
     def getMostFrequentSubSeq(self, m):
         """Returns the most frequent sub-sequence of length m contained in the `sequence` property"""
 
+        import numpy as np
+        
         # Create a set of every possible unique subsequence
         subseq = set()
         i = 0
@@ -48,8 +50,10 @@ class dna():
         for i in subseq:
             p = re.compile(i)
             OccurrenceNb.append(len(p.findall(self.sequence)))
-
-        # First most frequent sub-sequence
-        result = subseq[OccurrenceNb.index(max(OccurrenceNb))]
+        
+        # Most frequent sub-sequence
+        OccurrenceNb = np.array(OccurrenceNb)
+        subseq = np.array(subseq)
+        result = list(subseq[OccurrenceNb == OccurrenceNb.max()])
 
         return result
