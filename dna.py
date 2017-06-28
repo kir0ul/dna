@@ -10,6 +10,12 @@ class dna():
         """Generate a DNA sequence of length N in the subset [G-A-T-C]"""
 
         import random
+
+        # Securities
+        if type(N) != int:
+            raise TypeError("N must be an integer")
+        if N < 0:
+            raise ValueError("N must be positive")
         
         self.sequence = ""
         for i in range(N):
@@ -21,6 +27,10 @@ class dna():
         """Return True if the string argument `subseq` is contained inside the `sequence` property"""
 
         import re
+
+        # Security
+        if type(subseq) != str:
+            raise TypeError("subseq must be a string")
         
         # Search for sub-sequence
         p = re.compile(subseq)
@@ -38,6 +48,14 @@ class dna():
 
         import re
         import numpy as np
+
+        # Securities
+        if type(m) != int:
+            raise TypeError("m must be an integer")
+        if m < 0:
+            raise ValueError("m must be positive")
+        if m > len(self.sequence):
+            raise ValueError("The subsequence must be shorter or equal to the length of the generated sequence")
         
         # Create a set of every possible unique subsequence
         subseq = set()
