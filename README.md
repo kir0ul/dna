@@ -8,12 +8,12 @@ The app should have the following capabilities:
 2) An API endpoint that given a potential sub-sequence tells if it is contained in the generated sequence
 3) An API endpoint that given a number m returns the most frequent sub-sequence of length m contained in the generated sequence
 
-## How-to
+## How-to use
 
 Open a python terminal and call the API with the ```import dna``` statement.
 
 To instantiate a new DNA object, type ```myDna = dna.dna()```
 
 1) Type ```myDna.genSequence(N)``` with ```N``` an integer. The generated sequence is saved in the ```myDna.sequence``` property.
-2) Type ```myDna.querySubSequence("GATC")```
+2) Type ```myDna.querySubSequence("Some_G_T_A_C_sequence")```
 3) Type ```myDna.getMostFrequentSubSeq(m)``` with ```m``` an integer
